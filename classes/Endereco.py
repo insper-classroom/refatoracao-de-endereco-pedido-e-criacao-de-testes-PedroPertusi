@@ -38,8 +38,8 @@ class Endereco:
             self.complemento = complemento
             self.cep = str(cep)
 
-
-    def consultar_cep(self, cep):
+    @classmethod
+    def consultar_cep(cls, cep):
         '''
         Metodo realiza a consulta do cep em uma api publica para obter informações
         como estado, cidade e rua
@@ -60,6 +60,9 @@ class Endereco:
         # converte a resposta json em dict
         json_resp = response.json()
         return json_resp
+    
+    def __str__(self):
+        return 'Endereço: ' + self.cep + ' ' + self.estado + ' ' + self.cidade + ' ' + self.rua + ' ' + str(self.numero) + ' ' + self.complemento 
 
 
 

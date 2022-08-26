@@ -10,5 +10,18 @@
 
 class Produto:
 
+    lista_produtos = []
     def __init__(self, id='', nome=''):
-        pass
+        self.id = id
+        self.nome = nome
+        Produto.lista_produtos.append(self)
+
+    def get_id(self):
+        return self.id
+
+    def busca_nome(nome):
+        achados = []
+        for produto in Produto.lista_produtos:
+            if nome.lower() in produto.nome.lower():
+                achados.append(produto)
+        return achados
