@@ -9,7 +9,7 @@ from classes.PessoaFisica import PessoaFisica
 from classes.Endereco import Endereco
 
 
-pessoa1 = PessoaFisica('Carlos', 'tiago@email.com', '524.222.452-6')
+pessoa1 = PessoaFisica('524.222.452-6', 'tiago@email.com', 'Carlos')
 print(pessoa1)
 
 

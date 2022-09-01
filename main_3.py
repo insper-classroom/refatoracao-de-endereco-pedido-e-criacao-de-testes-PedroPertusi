@@ -5,14 +5,19 @@
 # Created Date: 15/08/2022
 # version ='1.0'
 # ---------------------------------------------------------------------------
+import imp
 from classes.PessoaFisica import PessoaFisica
 from classes.Endereco import Endereco
+from classes.Produto import Produto
+from classes.Pedido import Pedido
+from classes.Carrinho import Carrinho
+from classes.Pagamentos import Pagamento
 
 import copy
 
 # Caso de uso em que se busca uma pessoa e um produto
 # Cria uma pessoa 
-pessoa1 = PessoaFisica('Carlos', 'tiago@email.com', '524.222.452-6')
+pessoa1 = PessoaFisica('524.222.452-6', 'tiago@email.com', 'Carlos')
 print(pessoa1)
 
 # Cria  um endereço
@@ -40,7 +45,7 @@ sabonete = Produto("0010342967", "Sabonete")
 # Fim do setup
 ###########################################
 
-pessoas = PessoaFisica.busca_nome('Carlos')
+pessoas = PessoaFisica.busca_nome('Carlos') #quando criar um novo preciso
 if len(pessoas) > 0:
     pessoa = pessoas[0]  #Pega a primeira pessoa
 
@@ -50,7 +55,6 @@ produtos = Produto.busca_nome("sabon")
 if len(produtos) > 0: 
     produto = produtos[0]
 
-
 carrinho = Carrinho()
 carrinho.adicionar_item(sabonete)
 
@@ -58,12 +62,12 @@ pedido = Pedido()
 
 ends = pessoa.listar_enderecos()
 
-if len(ends > 0):
-    endereco = ends[0]
+if len(ends) > 0:
+    endereco = ends['casa']
 
 # Lembre-se de adicionar estes atributos ao endereço
 pedido.endereco_entrega = copy.deepcopy(endereco) 
-pedido.endereco_faturamento = copy.deepcopy(endreco)
+pedido.endereco_faturamento = copy.deepcopy(endereco)
 
 
 pag = Pagamento(pedido)
@@ -73,6 +77,8 @@ if pag.pagamento_aprovado:
 
 print("Pedido aguardando coleta")
 
+pedido.produtos = carrinho
+pedido.pessoa = pessoa1
 ## Pedido deve imprir todos os detalhes da compra - pessoa, endereço e produtos
 print(pedido)
 
