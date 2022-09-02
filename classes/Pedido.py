@@ -17,11 +17,11 @@ import re
 class Pedido:
     EM_ABERTO = 1
     PAGO = 2
-    def __init__(self):
+    def __init__(self, carrinho: Carrinho, pessoa: PessoaFisica):
         self.endereco_entrega = None
         self.endereco_faturamento = None
-        self.pessoa = None
-        self.produtos = None
+        self.pessoa = pessoa
+        self.produtos = carrinho
         self.status = False
 
     def __str__(self):

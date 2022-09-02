@@ -45,6 +45,10 @@ class Endereco:
         como estado, cidade e rua
         '''
         # continuam existindo variaveis locais, nem tudo é propriedade de objeto
+
+        if not isinstance(cep,(int,str)):
+            return False
+
         str_cep = str(cep)
         if len(str_cep) < 8:
             str_cep = '0' * (8 - len(str_cep)) + str_cep

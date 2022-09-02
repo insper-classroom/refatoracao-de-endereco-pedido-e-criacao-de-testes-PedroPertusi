@@ -11,7 +11,7 @@
 class Produto:
 
     lista_produtos = []
-    def __init__(self, id='', nome=''):
+    def __init__(self, id, nome=''):
         self.id = id
         self.nome = nome
         Produto.lista_produtos.append(self)

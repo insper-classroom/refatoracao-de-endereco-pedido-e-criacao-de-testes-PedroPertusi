@@ -35,10 +35,10 @@ class PessoaFisica:
         self.__enderecos.setdefault(apelido_endereco,end)
 
     def remover_endereco(self, apelido_endereco):
-        pass
+        del(self.__enderecos[apelido_endereco]) 
 
     def get_endereco(self, apelido_endereco):
-        pass
+        return self.__enderecos[apelido_endereco]
 
     def listar_enderecos(self):
         return self.__enderecos

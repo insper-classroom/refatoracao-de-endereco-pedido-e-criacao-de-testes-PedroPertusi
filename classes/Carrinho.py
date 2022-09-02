@@ -30,9 +30,8 @@ class Carrinho:
         
 
     def remover_item(self, item:Produto):
-        pass
-        pass
-        # Implemente este método
+        id = item.get_id()
+        del self.__itens[id]
 
     def get_item(self):
         return self.__itens
